@@ -11,7 +11,7 @@ class Chai {
     get submit() { return $('//button[@id="submit"]'); }
     get finalpageheader() { return $('//div[@class="txt "]//h1'); }
 
-    async givefirstandlastname(fname:string, lname:string) {
+    async enterfirstandlastname(fname:string, lname:string) {
         await (await this.firstName).setValue(fname);
         await (await this.lastName).setValue(lname);
     }
