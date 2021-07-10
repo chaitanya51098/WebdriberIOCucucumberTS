@@ -1,18 +1,23 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import chaipage from '../pageobjects/practice.page'
 
-Given(/^I load the url \"([^\"]*)\" validate (.+) on main page.$/, async function (appurl:string,header:string) {
-    await browser.url(appurl);
+
+Given(/^I load the url \"([^\"]*)\"$/, async function (url:string) {
+    await browser.url(url);
     await browser.maximizeWindow();
-    await expect(chaipage.mainpageheader).toHaveTextContaining(header);
+
 });
 
+Then(/^I validate (.+) on main page.$/, async function (header:string) {
+    await expect(chaipage.mainpageheader).toHaveTextContaining(header);
+});
 
 When(/^I give (.+) and (.+) in the form.$/, async function (firstname: string, lastname: string) {
 
     await chaipage.enterfirstandlastname(firstname, lastname);
 
 });
+
 
 Then(/^I click on submit and validate (.+) on new page.$/, async function (headertext: string) {
     await (await chaipage.submit).click();

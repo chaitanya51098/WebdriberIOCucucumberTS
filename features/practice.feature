@@ -2,7 +2,8 @@ Feature: The Practice Selenium Site
 
     Scenario Outline: As a user,I open the selenium practice form page
 
-        Given I load the url "http://www.practiceselenium.com/practice-form.html" validate <header> on main page.
+        Given I load the url "http://www.practiceselenium.com/practice-form.html"
+        Then I validate <header> on main page.
         When  I give <firstname> and <lastname> in the form.
         And I mention <sex>,<years>,<date>,<favouritechai>
         And I also give <excitingelement>,<continent>,<othercommand>
