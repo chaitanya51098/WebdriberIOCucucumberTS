@@ -11,8 +11,14 @@ class Chai {
     get submit() { return $('//button[@id="submit"]'); }
     get finalpageheader() { return $('//div[@class="txt "]//h1'); }
 
-    async enterfirstandlastname(fname:string, lname:string) {
+    getHeader() {
+        return this.mainpageheader;
+    }
+
+    async enterfirstname(fname: string) {
         await (await this.firstName).setValue(fname);
+    }
+    async enterlastname(lname: string) {
         await (await this.lastName).setValue(lname);
     }
 
@@ -25,6 +31,36 @@ class Chai {
                 break;
             }
         }
+    }
+
+    async selectGender(sex: string) {
+        await this.selectradiobuttn(await this.gender, sex);
+    }
+
+    async selectYears(years: string) {
+        await this.selectradiobuttn(await this.years, years);
+    }
+
+    async enterDate(date: string) {
+        await (await this.date).setValue(date);
+    }
+    async selectfavouritechaipage(favouritechaipage: string) {
+        await this.selectradiobuttn(await this.checkbox, favouritechaipage);
+    }
+    async selectexcitingelement(excitingelement: string) {
+        await this.selectradiobuttn(await this.checkbox, excitingelement);
+    }
+    async selectContinent(continent: string) {
+        await (await this.continents).selectByVisibleText(continent);
+    }
+    async selectCommand(othercommand: string) {
+        await (await this.commands).selectByVisibleText(othercommand);
+    }
+    async clickSubmit() {
+        await (await this.submit).click();
+    }
+    async getFinalHeader(){
+        return this.finalpageheader;
     }
 }
 export default new Chai();
