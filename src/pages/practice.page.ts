@@ -1,3 +1,5 @@
+import { click, selectRadioButton, selectVisibleText, setText } from "../utils/commands";
+import Page from "./page";
 class Chai {
     private get mainpageheader() { return $('//div[@class="wsb-htmlsnippet-element"]//h1'); }
     private get firstName() { return $('//input[@name="firstname"]'); }
@@ -16,50 +18,46 @@ class Chai {
     }
 
     async enterfirstname(fname: string) {
-        await (await this.firstName).setValue(fname);
+        await setText(this.firstName, fname);
     }
+
     async enterlastname(lname: string) {
-        await (await this.lastName).setValue(lname);
-    }
-
-    async selectradiobuttn(element: WebdriverIO.ElementArray, value: string) {
-
-        for (let i = 0; i < element.length; i++) {
-            const ele = await element[i].getAttribute('value');
-            if (ele === value) {
-                await element[i].click();
-                break;
-            }
-        }
+        await setText(this.lastName, lname);
     }
 
     async selectGender(sex: string) {
-        await this.selectradiobuttn(await this.gender, sex);
+        await selectRadioButton(this.gender, sex);
     }
 
     async selectYears(years: string) {
-        await this.selectradiobuttn(await this.years, years);
+        await selectRadioButton(this.years, years);
     }
 
     async enterDate(date: string) {
         await (await this.date).setValue(date);
     }
+
     async selectfavouritechaipage(favouritechaipage: string) {
-        await this.selectradiobuttn(await this.checkbox, favouritechaipage);
+        await selectRadioButton(this.checkbox, favouritechaipage);
     }
+
     async selectexcitingelement(excitingelement: string) {
-        await this.selectradiobuttn(await this.checkbox, excitingelement);
+        await selectRadioButton(this.checkbox, excitingelement);
     }
+
     async selectContinent(continent: string) {
-        await (await this.continents).selectByVisibleText(continent);
+        await selectVisibleText(this.continents, continent);
     }
+
     async selectCommand(othercommand: string) {
-        await (await this.commands).selectByVisibleText(othercommand);
+        await selectVisibleText(this.commands, othercommand);
     }
+
     async clickSubmit() {
-        await (await this.submit).click();
+        await click(this.submit);
     }
-    async getFinalHeader(){
+
+    async getFinalHeader() {
         return this.finalpageheader;
     }
 }
