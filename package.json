@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.ts"
+    "test": "npx wdio wdio.conf.ts",
+    "report": "allure generate allure-results/ --clean && allure open"
   },
   "author": "Chaitanya Parimi",
   "license": "ISC",
