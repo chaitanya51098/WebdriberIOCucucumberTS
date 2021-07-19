@@ -2,6 +2,7 @@
     "compilerOptions": {
         "target": "ES5",
         "resolveJsonModule": true,
+        "esModuleInterop" : true,
         "types": [
             "node",
             "webdriverio/async",
