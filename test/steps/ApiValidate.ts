@@ -29,7 +29,7 @@ Then(/^I validate the search result.$/, async function () {
     let ui_responsebody=JSON.parse(await userPage.getResponseBodyText());
     //console.log(ui_responsebody);
     await expect(ui_responsebody).toEqual(api_response_body);
-    await expect(String(ui_statuscode)).toContain(ui_statuscode);
+    await expect(ui_statuscode).toContain(String(api_statuscode));
     await expect(ui_responsebody.data.email).toEqual(api_response_body.data.email);
-    
+        
 });
