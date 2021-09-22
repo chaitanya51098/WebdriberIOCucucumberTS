@@ -1,3 +1,4 @@
+import { APICalls } from "../enums/ApiCalls";
 import { click, selectVisibleText, setText } from "../utils/commands";
 
 class ApiUsers {
@@ -30,7 +31,7 @@ class ApiUsers {
         (await this.outputtext).waitForDisplayed();
         return (await this.outputtext).getText();
     }
-    async chooseApiCall(apicall: string) {
+    async chooseApiCall(apicall: APICalls) {
         await selectVisibleText(this.httpmethod, apicall);
     }
     async clickAddParameter() {

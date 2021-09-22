@@ -24,7 +24,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './test/features/**/Testgetcall.feature'
+        './test/features/**/*.feature'
     ],
     // Patterns to exclude.
     exclude: [

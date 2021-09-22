@@ -2,6 +2,8 @@ import { Given, When, Then } from '@cucumber/cucumber'
 import { BASE_URI } from '../../src/config/APIconfig';
 import userPage from '../../src/pages/ApiUsers'
 import supertest from 'supertest'
+import { APICalls } from '../../src/enums/ApiCalls';
+
 
 let request = supertest(BASE_URI);
 let api_response: supertest.Response;
@@ -16,6 +18,7 @@ Given(/^I am on page (.+)$/, async function (url: string) {
 });
 
 When(/^I do (.+) user search in rest test page.$/, async function (endpoint: string) {
+    await userPage.chooseApiCall(APICalls.GET);
     await userPage.enterEndPoint(BASE_URI + endpoint);
     await userPage.clickAjaxSubmit();
 });
@@ -32,7 +35,7 @@ When(/^I make GET (.+) api call.$/, async function (endpoint: string) {
 
 Then(/^I validate the search result.$/, async function () {
     let ui_statuscode = await userPage.getHttpStatusText();
-    let ui_responsebody = JSON.parse(await userPage.getResponseBodyText());
+    let ui_responsebody =await JSON.parse(await userPage.getResponseBodyText());
     //console.log(ui_responsebody);
     // await expect(ui_responsebody).toEqual(api_response_body);
     // await expect(ui_statuscode).toContain(String(api_statuscode));
@@ -43,7 +46,7 @@ Then(/^I validate the search result.$/, async function () {
 });
 
 When(/^I create user with (.+) for user search in rest test page.$/, async function (endpoint) {
-    await userPage.chooseApiCall('POST');
+    await userPage.chooseApiCall(APICalls.POST);
     await userPage.enterEndPoint(BASE_URI + endpoint);
     await userPage.clickAddParameter();
     await userPage.enterParamNameValue1("name", payloaddata.name);
