@@ -1,3 +1,14 @@
+const Google = "https://www.google.com/";
+const Youtube = "https://www.tsrtconline.in/";
+let browserurl: string;
+if (process.env.ENV == 'QA') { browserurl = Google }
+else if (process.env.ENV == 'DEV') { browserurl = Youtube }
+else {
+    console.log("Give either QA OR DEV");
+    process.exit();
+}
+
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
@@ -24,7 +35,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './test/features/**/*.feature'
+        './test/features/**/diffenv.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -97,7 +108,7 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://www.practiceselenium.com/practice-form.html',
+    baseUrl: browserurl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
