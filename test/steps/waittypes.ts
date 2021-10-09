@@ -19,7 +19,8 @@ Then(/^I validate loading icon and text$/, async function () {
     //await loadingicon.waitForDisplayed({ timeout: 10000, reverse: true });
     // {
     //     In waitfordisplayed and other we wait for elements/locators,,in waituntil we will make the browser
-    //     waituntil its condition met & checked,if not met after particular time,then error is displayed 
+    //     waitfor particular time until its condition met & checked,if not met after
+    //       particular time,then error is displayed 
     // }
     await browser.waitUntil(async()=> await msg.getText()==="Hello World!",
     {timeout:10000,timeoutMsg:"msg not displayed after 10 sec"});
