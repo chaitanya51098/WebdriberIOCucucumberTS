@@ -4,8 +4,8 @@ let browserurl: string;
 if (process.env.ENV == 'QA') { browserurl = Google }
 else if (process.env.ENV == 'DEV') { browserurl = Youtube }
 else {
-    console.log("Give either QA OR DEV");
-    process.exit();
+    // console.log("Give either QA OR DEV");
+    // process.exit();
 }
 
 
@@ -35,7 +35,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './test/features/**/diffenv.feature'
+        './test/features/**/waitex.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -111,7 +111,7 @@ export const config: WebdriverIO.Config = {
     baseUrl: browserurl,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 3000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
