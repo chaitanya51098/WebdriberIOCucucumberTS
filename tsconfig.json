@@ -3,11 +3,14 @@
         "target": "ES5",
         "resolveJsonModule": true,
         "esModuleInterop" : true,
+        
         "types": [
             "node",
             "webdriverio/async",
             "@wdio/cucumber-framework",
             "expect-webdriverio"
-        ]
+        ],
+        "baseUrl": "."
+        
     }
 }

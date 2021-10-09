@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@cucumber/cucumber'
-import chaipage from '../../src/pages/practice.page'
+import chaipage from 'src/pages/practice.page'
 
 
 Given(/^I load the url \"([^\"]*)\"$/, async function (url: string) {

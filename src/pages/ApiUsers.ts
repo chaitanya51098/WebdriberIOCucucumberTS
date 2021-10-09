@@ -1,5 +1,5 @@
-import { APICalls } from "../enums/ApiCalls";
-import { click, selectVisibleText, setText } from "../utils/commands";
+import { APICalls } from "src/enums/ApiCalls";
+import { click, selectVisibleText, setText } from "src/utils/commands";
 
 class ApiUsers {
 

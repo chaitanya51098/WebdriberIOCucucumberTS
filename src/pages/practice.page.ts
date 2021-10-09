@@ -1,4 +1,4 @@
-import { click, selectRadioButton, selectVisibleText, setText } from "../utils/commands";
+import { click, selectRadioButton, selectVisibleText, setText } from "src/utils/commands";
 import Page from "./page";
 class Chai {
     private get mainpageheader() { return $('//div[@class="wsb-htmlsnippet-element"]//h1'); }
