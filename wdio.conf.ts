@@ -35,7 +35,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './test/features/**/waitex.feature'
+        './test/features/**/TestAPIcalls.feature'
     ],
     // Patterns to exclude.
     exclude: [

@@ -24,12 +24,12 @@ class ApiUsers {
         await click(this.ajaxsubmit);
     }
     async getHttpStatusText(): Promise<string> {
-        (await this.httptext).waitForDisplayed();
-        return (await this.httptext).getText();
+        await this.httptext.waitForDisplayed();
+        return this.httptext.getText();
     }
     async getResponseBodyText() {
         (await this.outputtext).waitForDisplayed();
-        return (await this.outputtext).getText();
+        return this.outputtext.getText();
     }
     async chooseApiCall(apicall: APICalls) {
         await selectVisibleText(this.httpmethod, apicall);
@@ -43,9 +43,9 @@ class ApiUsers {
 
     }
     async enterParamNameValue2(name:string,value:string) {
-        await (await this.paramname2).waitForDisplayed();
+        await this.paramname2.waitForDisplayed();
         await setText(this.paramname2,name);
-        await (await this.paramvalue2).waitForDisplayed();
+        await this.paramvalue2.waitForDisplayed();
         await setText(this.paramvalue2,value);
     }
 

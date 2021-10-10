@@ -34,7 +34,7 @@ class Chai {
     }
 
     async enterDate(date: string) {
-        await (await this.date).setValue(date);
+        await this.date.setValue(date);
     }
 
     async selectfavouritechaipage(favouritechaipage: string) {
